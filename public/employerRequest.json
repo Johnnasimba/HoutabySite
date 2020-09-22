@@ -1,0 +1,20 @@
+[
+    {
+        "employerId": 1,
+        "employerName": "David Scott",
+        "phone": "+0993885839",
+        "email": "scott@email.com",
+        "employerMessage": "Please send me contact information of John Nasimba, I might have  job for him",
+        "ApplicantSelected": "John Moses",
+        "ApplicantId": 12
+    },
+    {
+        "employerId": 2,
+        "employerName": "Emmanuel Smith",
+        "phone": "0983885839",
+        "email": "smith@email.com",
+        "employerMessage": "Please send me contact information of Goffrey, I might have  job for him",
+        "ApplicantSelected": "Goffrey Makawa",
+        "ApplicantId": 4
+    }
+]
