@@ -1,10 +1,17 @@
-import React, { Component } from 'react';
-import '../css/login.css';
+import React from 'react';
+import './login.styles.css'
+import { signInWithGoogle} from '../../firebase/firebase.utils';
 
-
-
-class Login extends Component {
-    render() {
+class Login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: ''
+        };
+    }
+    
+    render() { 
         return (
             <div className="container" id="login"> 
                 <h4 className="center">Login</h4>
@@ -16,11 +23,14 @@ class Login extends Component {
                     <div className="container">
                         <h6 className="center red-text">error message</h6>
                     </div>
-                    <button type="submit" className="btn ">Login</button>
+                    <div className="Buttons">
+                        <button type="submit" className="btn ">Login by email and password</button>
+                        <button onClick={signInWithGoogle}  className="btn green">Login by Google</button>
+                    </div>                   
                 </form>
             </div>
-        )
+          );
     }
 }
-
+ 
 export default Login;

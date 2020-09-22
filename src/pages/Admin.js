@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { MdClose } from "react-icons/md";
 import '../css/index.css'
-
-
+import {auth} from '../firebase/firebase.utils'
 class Admin extends Component {
     render() {
         return (
             <div id="Admn-section">
                 <div className="center " id="addBtn">
                     <a href="/addApplicant"><h5 className="btn center addApplicant">ADD NEW APPLICANT</h5></a>
-                    <a href="logout" className="btn left longout">Logout</a>
+                    <button onClick={() => auth.signOut()} className="btn left longout">Logout</button>
                     <h4 className="mssg center">session mesage</h4>
                 </div>       
                 <div className="left employerRequest">

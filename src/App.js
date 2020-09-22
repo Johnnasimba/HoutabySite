@@ -7,10 +7,11 @@ import Home from './pages/Home';
 import About from './pages/About';
 import SearchApplicant from './pages/SearchApplicant';
 import Applicant from './pages/Applicant';
-import Login from './pages/Login';
+import LoginPage from './pages/LoginPage';
 import Admin from './pages/Admin';
 import AddApplicant from './pages/AddApplicant';
 import { without } from 'lodash';
+import { auth } from './firebase/firebase.utils'
 
 
 
@@ -24,7 +25,7 @@ class App extends Component {
       queryText: '',
       orderDir: 'asc',
       lastIndex: 0,
-   
+      Admin: null   
     };
     this.deleteemployerRequest = this.deleteemployerRequest.bind(this);   
     this.addApplicant = this.addApplicant.bind(this);
@@ -50,7 +51,13 @@ class App extends Component {
     this.setState({ queryText: e.target.value })
   }
 
- componentDidMount() {
+  signedInAsAdmin = null
+  
+  componentDidMount() {
+    this.signedInAsAdmin = auth.onAuthStateChanged(user => {
+      this.setState({ Admin: user });
+      console.log(user);
+   })
    fetch('./Applicant.json')
      .then(Response => Response.json())
      .then(result => {
@@ -71,7 +78,11 @@ class App extends Component {
          employerRequest: tempemployerRequest
        })
      });  
- }
+  }
+  
+  componentWillUnmount() {
+    this.signedInAsAdmin();
+  }
 
   render() {
     const { Applicants, queryText } = this.state;
@@ -103,7 +114,7 @@ class App extends Component {
         <Route path="/About"  component={About} />
         <Route path="/SearchApplicant"  component={SearchApplicant} />
         <Route path="/Applicant"  component={Applicant} />
-        <Route path="/Login" component={Login} />
+        <Route path="/Login" component={LoginPage} />
         
 
         <Route path="/Admin"
@@ -111,6 +122,7 @@ class App extends Component {
             <Admin
               employerRequest={this.state.employerRequest}
               deleteemployerRequest={this.deleteemployerRequest}
+              Admin = {this.state.Admin}
               
             />
           )}
