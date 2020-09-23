@@ -1,0 +1,14 @@
+.sign-up {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+    margin: 0 30%;
+  
+    .title {
+      margin: 10px 0;
+    }
+    .input {
+      border: 1 px solid black;
+    }
+  }

@@ -10,8 +10,9 @@ import Applicant from './pages/Applicant';
 import LoginPage from './pages/LoginPage';
 import Admin from './pages/Admin';
 import AddApplicant from './pages/AddApplicant';
+import SignUpPage from './pages/signupPage';
 import { without } from 'lodash';
-import { auth } from './firebase/firebase.utils'
+import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
 
 
@@ -54,9 +55,22 @@ class App extends Component {
   signedInAsAdmin = null
   
   componentDidMount() {
-    this.signedInAsAdmin = auth.onAuthStateChanged(user => {
-      this.setState({ Admin: user });
-      console.log(user);
+    this.signedInAsAdmin = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);  
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            Admin: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          });
+          console.log(this.state.Admin)
+        })
+        
+      } else {
+        this.setState({Admin: userAuth})
+       }
    })
    fetch('./Applicant.json')
      .then(Response => Response.json())
@@ -122,6 +136,14 @@ class App extends Component {
             <Admin
               employerRequest={this.state.employerRequest}
               deleteemployerRequest={this.deleteemployerRequest}
+              Admin = {this.state.Admin}
+              
+            />
+          )}
+        />
+        <Route path="/singup-new-admin"
+          render={() => (
+            <SignUpPage
               Admin = {this.state.Admin}
               
             />

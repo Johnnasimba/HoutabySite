@@ -8,6 +8,7 @@ class LoginPage extends Component {
     render() {
         return (
             <Login />
+            
         )
     }
 }
