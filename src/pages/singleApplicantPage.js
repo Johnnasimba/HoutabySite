@@ -97,7 +97,7 @@ class SingleApplicantPage extends Component {
                    <p> 0 recomendations</p>
                  </div>
                  <div>
-                   <a href="/home/10" className="card__link btn white-text">MORE INFO</a>
+                   <a href="/10" className="card__link btn white-text">MORE INFO</a>
                  </div>
                </div>
              </div>
@@ -119,7 +119,7 @@ class SingleApplicantPage extends Component {
                    <p> 0 recomendations</p>
                  </div>
                  <div>
-                   <a href="/home/10" className="card__link btn white-text">MORE INFO</a>
+                   <a href="/15" className="card__link btn white-text">MORE INFO</a>
                  </div>
                </div>
              </div>
@@ -137,7 +137,7 @@ class SingleApplicantPage extends Component {
                    <p> 0 recomendations</p>
                  </div>
                  <div>
-                   <a href="/home/11" className="card__link btn white-text">MORE INFO</a>
+                   <a href="/11" className="card__link btn white-text">MORE INFO</a>
                  </div>
                </div>
              </div>
@@ -154,7 +154,7 @@ class SingleApplicantPage extends Component {
                    <p> 0 recomendations</p>
                  </div>
                  <div>
-                   <a href="/home/14" className="card__link btn white-text">MORE INFO</a>
+                   <a href="/14" className="card__link btn white-text">MORE INFO</a>
                  </div>
                </div>
              </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './pages/subComponets/Header';
 import Footer from './pages/subComponets/Footer'
@@ -115,7 +115,9 @@ class App extends Component {
         <Header handleChange={ this.handleChange}  />
       <div id="bodyPlusPagination">
           <div id="content">
+            
       <Router>
+      <Switch>
         <Route path="/"
         render={() => (
           <Home
@@ -131,18 +133,7 @@ class App extends Component {
         <Route exact path="/login" component={LoginPage} />
               
 
-        <Route  path="/home/:id"
-                render={(props) => {
-                  let id = props.location.pathname.replace('/home/', '');
-                  console.log(id);
-                  return (
-                    <SingleApplicantPage
-                    Applicants={this.state.Applicants}
-                      id = {id}
-                    /> 
-          )
-        }}
-       />
+       
         
 
         <Route path="/Admin"
@@ -170,7 +161,21 @@ class App extends Component {
                   />
           )}
         />
-      </Router>
+        <Route  path="/:id"
+          render={(props) => {
+            let id = props.location.pathname.replace('/', '');
+              console.log(id);
+              return (
+              <SingleApplicantPage
+                Applicants={this.state.Applicants}
+                id = {id}
+              /> 
+            )
+            }}
+        />
+                </Switch>
+              </Router>
+              
       </div>
     </div>
     
