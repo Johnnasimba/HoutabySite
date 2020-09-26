@@ -5,12 +5,6 @@
   transform: translate(-50%, -50% )!important;
   margin-left: 94% !important;
 }
-
-.search-box {
-  position: relative !important;
-
-}
-
 .input {
   position: absolute !important;
   top: 5px !important;
@@ -172,8 +166,7 @@ ul.socialIcons {
 #searh {
   display: inline-block;
   margin-left: 90%;
-  margin-top: 10px;
-  
+  margin-top: 100px;
 }
 
 .sidenav li>a {

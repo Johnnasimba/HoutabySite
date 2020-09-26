@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage';
 import Admin from './pages/Admin';
 import AddApplicant from './pages/AddApplicant';
 import SignUpPage from './pages/signupPage';
+import SingleApplicantPage from './pages/singleApplicantPage';
 import { without } from 'lodash';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
@@ -65,7 +66,7 @@ class App extends Component {
               ...snapShot.data()
             }
           });
-          console.log(this.state.Admin)
+          //console.log(this.state.Admin)
         })
         
       } else {
@@ -118,17 +119,30 @@ class App extends Component {
         <Route path="/"
         render={() => (
           <Home
-            title={'This is dynamic data passed through props'}
             Applicants={filteredApplicants}
           />
         )}
         exact={true}
         />
 
-        <Route path="/About"  component={About} />
-        <Route path="/SearchApplicant"  component={SearchApplicant} />
-        <Route path="/Applicant"  component={Applicant} />
-        <Route path="/Login" component={LoginPage} />
+        <Route exact path="/about"  component={About} />
+        <Route exact path="/searchApplicant"  component={SearchApplicant} />
+        <Route exact path="/applicant"  component={Applicant} />
+        <Route exact path="/login" component={LoginPage} />
+              
+
+        <Route  path="/home/:id"
+                render={(props) => {
+                  let id = props.location.pathname.replace('/home/', '');
+                  console.log(id);
+                  return (
+                    <SingleApplicantPage
+                    Applicants={this.state.Applicants}
+                      id = {id}
+                    /> 
+          )
+        }}
+       />
         
 
         <Route path="/Admin"

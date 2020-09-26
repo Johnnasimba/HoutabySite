@@ -9,32 +9,32 @@ const Header =({handleChange}) => {
                     <div className=""> 
                         <ul > 
                             <li>
-                                <a href="/browse" className="sidenav-trigger" data-target="mobile-links">
+                                <a href="/" className="sidenav-trigger" data-target="mobile-links">
                                     <i className="material-icons">menu</i>
                                 </a>
                             </li> 
                             <div className="hide-on-med-and-down"> 
                                 <li>
                                     <div id="home">
-                                        <a href="/browse">
+                                        <a href="/">
                                             <i className="material-icons">home</i>
                                         </a>
                                     </div>
                                 </li>  
                                 <li >
-                                    <a href="/browse/General">General Workers</a>
+                                    <a href="/">General Workers</a>
                                 </li>
                                 <li>
-                                    <a href="/browse/Gardener">Gardeners</a>
+                                    <a href="/">Gardeners</a>
                                 </li>
                                 <li>
-                                    <a href="/browse/Driver">Drivers</a>
+                                    <a href="/">Drivers</a>
                                 </li>
                                 <li>
-                                    <a href="/browse/House">House Keepers</a>
+                                    <a href="/">House Keepers</a>
                                 </li>
                                 <li>
-                                    <a href="/browse" className="dropdown-trigger" data-target="dropdown" id="arrow-down">
+                                    <a href="/" className="dropdown-trigger" data-target="dropdown" id="arrow-down">
                                         <i className="fa fa-angle-down" aria-hidden="true"></i>
                                     </a> 
                                 </li>
@@ -58,23 +58,23 @@ const Header =({handleChange}) => {
 
 
                 <ul className="sidenav" id="mobile-links">
-                    <li > <a href="/browse/General">General Workers</a>  </li>
-                    <li> <a href="/browse/Gardener">Gardeners</a>  </li>
-                    <li> <a href="/browse/Driver">Drivers</a>  </li>
-                    <li> <a href="/browse/House">House Keepers</a> </li>
-                    <li> <a href="/browse/Painter">Painter</a> </li>
-                    <li > <a href="/browse/Brick">Brick Layers</a>  </li>
-                    <li> <a href="/browse/Plumber">Plumber</a>  </li>
-                    <li> <a href="/browse/Shop">Shop assistance</a>  </li>
-                    <li> <a href="/browse/Baby">Baby sitter</a> </li>
+                    <li > <a href="/">General Workers</a>  </li>
+                    <li> <a href="/">Gardeners</a>  </li>
+                    <li> <a href="/">Drivers</a>  </li>
+                    <li> <a href="/">House Keepers</a> </li>
+                    <li> <a href="/">Painter</a> </li>
+                    <li > <a href="/">Brick Layers</a>  </li>
+                    <li> <a href="/">Plumber</a>  </li>
+                    <li> <a href="/">Shop assistance</a>  </li>
+                    <li> <a href="/">Baby sitter</a> </li>
                 </ul>
 
                 <ul id="dropdown" className="dropdown-content ">
-                    <li className="dropdown-list"> <a href="/browse/Painter">Painter</a> </li>
-                    <li className="dropdown-list"> <a href="/browse/Brick">Brick Layers</a>  </li>
-                    <li className="dropdown-list"> <a href="/browse/Plumber">Plumber</a>  </li>
-                    <li className="dropdown-list"> <a href="/browse/Shop">Shop assistance</a>  </li>
-                    <li className="dropdown-list"> <a href="/browse/Baby">Baby sitter</a> </li>
+                    <li className="dropdown-list"> <a href="/">Painter</a> </li>
+                    <li className="dropdown-list"> <a href="/">Brick Layers</a>  </li>
+                    <li className="dropdown-list"> <a href="/">Plumber</a>  </li>
+                    <li className="dropdown-list"> <a href="/">Shop assistance</a>  </li>
+                    <li className="dropdown-list"> <a href="/">Baby sitter</a> </li>
                 </ul>
             </div>
         )
