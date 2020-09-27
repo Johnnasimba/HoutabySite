@@ -4,6 +4,7 @@ import '../css/index.css'
 import {auth} from '../firebase/firebase.utils'
 class Admin extends Component {
     render() {
+       
         return (
             <div id="Admn-section">
                 <div className="center " id="addBtn">

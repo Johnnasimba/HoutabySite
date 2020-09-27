@@ -8,7 +8,7 @@ class Home extends Component {
             <div className="cards">
                 {this.props.Applicants.map(item => (
                 <div className="card" key={item.id}>
-                    <img className="card__image" src={require('../images/John Nasimba.jpg')} alt="John Nasimba " />
+                    <img className="card__image" src={require(`../images/${item.image}`)} alt="John Nasimba " />
                     <div className="card__content">
                         <p className="card-title " >
                             {item.firstJob}, {item.secondJob}, {item.thirdJob},  {item.forthJob}
@@ -26,7 +26,7 @@ class Home extends Component {
                             <p> 0 recomendations</p>
                         </div>
                         <div>
-                            <a href="/5" className="card__link btn white-text">MORE INFO</a>
+                                <a href={"/" + item.id} className="card__link btn white-text">MORE INFO</a>
                         </div>
                     </div>
                 </div>

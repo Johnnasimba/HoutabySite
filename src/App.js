@@ -164,11 +164,9 @@ class App extends Component {
         <Route  path="/:id"
           render={(props) => {
             let id = props.location.pathname.replace('/', '');
-              console.log(id);
               return (
               <SingleApplicantPage
-                Applicants={this.state.Applicants}
-                id = {id}
+                  id={id}
               /> 
             )
             }}
