@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
-import '../css/home.css';
-
-
-class Home extends Component {
-    render() {
-        return (
-            <div className="cards">
-                {this.props.Applicants.map(item => (
+import React from 'react';
+const GroupSearch = ({ jobTitle, groupApplicants }) => {
+   //console.log(jobTitle)
+    
+   const Applicants = groupApplicants.filter(Applicant =>
+    Applicant.firstJob.toLowerCase().includes(jobTitle.toLowerCase()) ||
+    Applicant.secondJob.toLowerCase().includes(jobTitle.toLowerCase()) ||
+    Applicant.thirdJob.toLowerCase().includes(jobTitle.toLowerCase()) ||
+    Applicant.forthJob.toLowerCase().includes(jobTitle.toLowerCase()) 
+    )
+    console.log(Applicants)
+    return (
+        <div className="cards">
+            {Applicants.map(item => (
                 <div className="card" key={item.id}>
                     <img className="card__image" src={require(`../images/${item.image}`)} alt="John Nasimba " />
                     <div className="card__content">
@@ -30,11 +35,11 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-            ))
-        }
-            </div>
-        )
-    }
-}
+                ))
+            }
 
-export default Home;
+        </div>
+    );
+}
+ 
+export default GroupSearch;

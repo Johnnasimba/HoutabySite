@@ -22,16 +22,16 @@ const Header =({handleChange}) => {
                                     </div>
                                 </li>  
                                 <li >
-                                    <a href="/">General Workers</a>
+                                    <a href="/search/General">General Workers</a>
                                 </li>
                                 <li>
-                                    <a href="/">Gardeners</a>
+                                    <a href="/search/Gardener">Gardeners</a>
                                 </li>
                                 <li>
-                                    <a href="/">Drivers</a>
+                                    <a href="/search/Driver">Drivers</a>
                                 </li>
                                 <li>
-                                    <a href="/">House Keepers</a>
+                                    <a href="/search/Housekeeper">House Keepers</a>
                                 </li>
                                 <li>
                                     <a href="/" className="dropdown-trigger" data-target="dropdown" id="arrow-down">
@@ -58,23 +58,23 @@ const Header =({handleChange}) => {
 
 
                 <ul className="sidenav" id="mobile-links">
-                    <li > <a href="/">General Workers</a>  </li>
-                    <li> <a href="/">Gardeners</a>  </li>
-                    <li> <a href="/">Drivers</a>  </li>
-                    <li> <a href="/">House Keepers</a> </li>
-                    <li> <a href="/">Painter</a> </li>
-                    <li > <a href="/">Brick Layers</a>  </li>
-                    <li> <a href="/">Plumber</a>  </li>
-                    <li> <a href="/">Shop assistance</a>  </li>
-                    <li> <a href="/">Baby sitter</a> </li>
+                    <li > <a href="/search/General">General Workers</a>  </li>
+                    <li> <a href="/search/Gardener">Gardeners</a>  </li>
+                    <li> <a href="/search/Driver">Drivers</a>  </li>
+                    <li> <a href="/search/House">House Keepers</a> </li>
+                    <li> <a href="/search/Painter">Painter</a> </li>
+                    <li > <a href="/search/Brick">Brick Layers</a>  </li>
+                    <li> <a href="/search/Plumber">Plumber</a>  </li>
+                    <li> <a href="/search/Shop">Shop assistance</a>  </li>
+                    <li> <a href="/search/Baby">Baby sitter</a> </li>
                 </ul>
 
                 <ul id="dropdown" className="dropdown-content ">
-                    <li className="dropdown-list"> <a href="/">Painter</a> </li>
-                    <li className="dropdown-list"> <a href="/">Brick Layers</a>  </li>
-                    <li className="dropdown-list"> <a href="/">Plumber</a>  </li>
-                    <li className="dropdown-list"> <a href="/">Shop assistance</a>  </li>
-                    <li className="dropdown-list"> <a href="/">Baby sitter</a> </li>
+                    <li className="dropdown-list"> <a href="/search/Painter">Painter</a> </li>
+                    <li className="dropdown-list"> <a href="/search/Brick">Brick Layers</a>  </li>
+                    <li className="dropdown-list"> <a href="/search/Plumber">Plumber</a>  </li>
+                    <li className="dropdown-list"> <a href="/search/Shop">Shop assistance</a>  </li>
+                    <li className="dropdown-list"> <a href="/search/Baby">Baby sitter</a> </li>
                 </ul>
             </div>
         )

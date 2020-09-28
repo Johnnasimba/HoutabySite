@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './pages/subComponets/Header';
 import Footer from './pages/subComponets/Footer'
-import Home from './pages/Home';
+import HomePage from './pages/HomePage';
 import About from './pages/About';
 import SearchApplicant from './pages/SearchApplicant';
 import Applicant from './pages/Applicant';
@@ -12,6 +12,7 @@ import Admin from './pages/Admin';
 import AddApplicant from './pages/AddApplicant';
 import SignUpPage from './pages/signupPage';
 import SingleApplicantPage from './pages/singleApplicantPage';
+import GroupSearch from './pages/groupSearch';
 import { without } from 'lodash';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
@@ -73,7 +74,7 @@ class App extends Component {
         this.setState({Admin: userAuth})
        }
    })
-   fetch('./Applicant.json')
+   fetch('/Applicant.json')
      .then(Response => Response.json())
      .then(result => {
        const tempApplicants = result.map(item => {
@@ -83,7 +84,7 @@ class App extends Component {
          Applicants: tempApplicants
        })
      });  
-   fetch('./employerRequest.json')
+   fetch('/employerRequest.json')
      .then(Response => Response.json())
      .then(result => {
        const tempemployerRequest = result.map(item => {
@@ -120,7 +121,7 @@ class App extends Component {
       <Switch>
         <Route path="/"
         render={() => (
-          <Home
+          <HomePage
             Applicants={filteredApplicants}
           />
         )}
@@ -160,6 +161,17 @@ class App extends Component {
                     addApplicant={this.addApplicant}                                        
                   />
           )}
+        />
+        <Route  path="/search/:jobTitle"
+          render={(props) => {
+            let jobTitle = props.location.pathname.replace('/search/', '');
+              return (
+              <GroupSearch
+                  jobTitle={jobTitle}
+                  groupApplicants={filteredApplicants}
+              /> 
+            )
+            }}
         />
         <Route  path="/:id"
           render={(props) => {

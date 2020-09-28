@@ -56,7 +56,6 @@ class SingleApplicantPage extends Component {
         Applicant.forthJob.toLowerCase().includes(ApplicantSecondJob.toLowerCase())
       )
     conditionalFunc() 
- console.log(relatedApplicants)   
     return (
       <div>   
         
