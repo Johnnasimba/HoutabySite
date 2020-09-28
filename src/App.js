@@ -67,13 +67,13 @@ class App extends Component {
               ...snapShot.data()
             }
           });
-          //console.log(this.state.Admin)
         })
         
       } else {
         this.setState({Admin: userAuth})
        }
-   })
+    })
+    
    fetch('/Applicant.json')
      .then(Response => Response.json())
      .then(result => {
@@ -109,8 +109,8 @@ class App extends Component {
       Applicant.forthJob.toLowerCase().includes(queryText.toLowerCase()) ||
       Applicant.firstName.toLowerCase().includes(queryText.toLowerCase()) ||
       Applicant.lastName.toLowerCase().includes(queryText.toLowerCase()) 
-
-      )
+    )
+    
     return (
       <>
         <Header handleChange={ this.handleChange}  />

@@ -8,7 +8,6 @@ const GroupSearch = ({ jobTitle, groupApplicants }) => {
     Applicant.thirdJob.toLowerCase().includes(jobTitle.toLowerCase()) ||
     Applicant.forthJob.toLowerCase().includes(jobTitle.toLowerCase()) 
     )
-    console.log(Applicants)
     return (
         <div className="cards">
             {Applicants.map(item => (
