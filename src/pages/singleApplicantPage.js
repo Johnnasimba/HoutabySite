@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../componets/singleApplicant/singleApplicant.styles.scss'
+import Loading from '../componets/loading/loading.component'
 
 
 class SingleApplicantPage extends Component {
@@ -164,16 +165,7 @@ class SingleApplicantPage extends Component {
            
           </div>
         ) : (
-        <div className="loading">
-          <div className="obj"></div>
-          <div className="obj"></div>
-          <div className="obj"></div>
-          <div className="obj"></div>
-          <div className="obj"></div>
-          <div className="obj"></div>
-          <div className="obj"></div>
-          <div className="obj"></div>
-        </div>
+          <Loading/>
           )}
         </div>
     );

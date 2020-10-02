@@ -14,8 +14,8 @@ import SignUpPage from './pages/signupPage';
 import SingleApplicantPage from './pages/singleApplicantPage';
 import GroupSearch from './pages/groupSearch';
 import { without } from 'lodash';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils'
-
+import { AuthProvider } from "./componets/auth/Auth";
+import PrivateRoute from "./componets/auth/PrivateRoute";
 
 
 class App extends Component {
@@ -28,7 +28,6 @@ class App extends Component {
       queryText: '',
       orderDir: 'asc',
       lastIndex: 0,
-      Admin: null   
     };
     this.deleteemployerRequest = this.deleteemployerRequest.bind(this);   
     this.addApplicant = this.addApplicant.bind(this);
@@ -53,27 +52,8 @@ class App extends Component {
   handleChange=(e)=> {
     this.setState({ queryText: e.target.value })
   }
-
-  signedInAsAdmin = null
   
-  componentDidMount() {
-    this.signedInAsAdmin = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);  
-        userRef.onSnapshot(snapShot => {
-          this.setState({
-            Admin: {
-              id: snapShot.id,
-              ...snapShot.data()
-            }
-          });
-        })
-        
-      } else {
-        this.setState({Admin: userAuth})
-       }
-    })
-    
+  componentDidMount() {    
    fetch('/Applicant.json')
      .then(Response => Response.json())
      .then(result => {
@@ -95,11 +75,6 @@ class App extends Component {
        })
      });  
   }
-  
-  componentWillUnmount() {
-    this.signedInAsAdmin();
-  }
-
   render() {
     const { Applicants, queryText } = this.state;
     const filteredApplicants = Applicants.filter(Applicant =>
@@ -113,79 +88,72 @@ class App extends Component {
     
     return (
       <>
-        <Header handleChange={ this.handleChange}  />
+      <Header handleChange={ this.handleChange}  />
       <div id="bodyPlusPagination">
           <div id="content">
-            
-      <Router>
-      <Switch>
-        <Route path="/"
-        render={() => (
-          <HomePage
-            Applicants={filteredApplicants}
-          />
-        )}
-        exact={true}
-        />
+      <AuthProvider>     
+        <Router>
+          <div>
+            <Switch>
+              <Route path="/"
+              render={() => (
+                <HomePage
+                  Applicants={filteredApplicants}
+                />
+              )}
+              exact={true}
+              />
 
-        <Route exact path="/about"  component={About} />
-        <Route exact path="/searchApplicant"  component={SearchApplicant} />
-        <Route exact path="/applicant"  component={Applicant} />
-        <Route exact path="/login" component={LoginPage} />
-              
-
-       
-        
-
-        <Route path="/Admin"
-          render={() => (
-            <Admin
-              employerRequest={this.state.employerRequest}
-              deleteemployerRequest={this.deleteemployerRequest}
-              Admin = {this.state.Admin}
-              
-            />
-          )}
-        />
-        <Route path="/singup-new-admin"
-          render={() => (
-            <SignUpPage
-              Admin = {this.state.Admin}
-              
-            />
-          )}
-        />
-        <Route path="/AddApplicant"
-                render={() => (
-                  <AddApplicant
-                    addApplicant={this.addApplicant}                                        
-                  />
-          )}
-        />
-        <Route  path="/search/:jobTitle"
-          render={(props) => {
-            let jobTitle = props.location.pathname.replace('/search/', '');
-              return (
-              <GroupSearch
-                  jobTitle={jobTitle}
-                  groupApplicants={filteredApplicants}
-              /> 
-            )
-            }}
-        />
-        <Route  path="/:id"
-          render={(props) => {
-            let id = props.location.pathname.replace('/', '');
-              return (
-              <SingleApplicantPage
-                  id={id}
-              /> 
-            )
-            }}
-        />
-                </Switch>
-              </Router>
-              
+              <Route exact path="/about"  component={About} />
+              <Route exact path="/searchApplicant"  component={SearchApplicant} />
+              <PrivateRoute exact path="/applicant"  component={Applicant} />
+              <Route exact path="/login" component={LoginPage} />
+                  
+              <PrivateRoute
+                exact
+                path="/Admin"
+                component={Admin}
+                employerRequest={this.state.employerRequest}
+                deleteemployerRequest={this.deleteemployerRequest}
+              />
+                          
+              <PrivateRoute
+                exact
+                path="/signup"
+                component={SignUpPage}
+              />
+                
+              <PrivateRoute
+                  exact          
+                  path="/AddApplicant"
+                  component={AddApplicant}   
+                  addApplicant={this.addApplicant}     
+              />
+              <Route  path="/search/:jobTitle"
+                render={(props) => {
+                  let jobTitle = props.location.pathname.replace('/search/', '');
+                    return (
+                    <GroupSearch
+                        jobTitle={jobTitle}
+                        groupApplicants={filteredApplicants}
+                    /> 
+                  )
+                  }}
+              />
+              <Route  path="/:id"
+                render={(props) => {
+                  let id = props.location.pathname.replace('/', '');
+                    return (
+                    <SingleApplicantPage
+                        id={id}
+                    /> 
+                  )
+                  }}
+              />
+            </Switch>
+            </div>
+          </Router>
+      </AuthProvider>      
       </div>
     </div>
     

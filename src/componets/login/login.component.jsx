@@ -1,61 +1,50 @@
-import React, {Component} from 'react';
+import React, {useCallback, useContext} from 'react';
 import './login.styles.css'
-import { auth, signInWithGoogle} from '../../firebase/firebase.utils';
+import { withRouter, Redirect } from "react-router";
+import app from "../auth/base";
+import { AuthContext } from "../auth/Auth";
 
-class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: ''
-        };
-    }
-    handleSubmit =async event => {
-        event.preventDefault();
-        const { email, password } = this.state;
-        try {
-            await auth.signInWithEmailAndPassword(email, password);
-            this.setState({ email: '', password: '' });
-        } catch (error) {
-            console.log(error);
-        }        
-      };
+
+const Login =({history}) => {
+    const handleLogin = useCallback(
+        async event => {
+          event.preventDefault();
+          const { email, password } = event.target.elements;
+          try {
+            await app
+              .auth()
+              .signInWithEmailAndPassword(email.value, password.value);
+            history.push("/");
+          } catch (error) {
+            alert(error);
+          }
+        },
+        [history]
+      );
     
-      handleChange = event => {
-        const { value, name } = event.target;
+      const { currentUser } = useContext(AuthContext);
     
-        this.setState({ [name]: value });
-      };
-    render() { 
+      if (currentUser) {
+        return <Redirect to="/" />;
+      }
         return (
             <div className="container" id="login"> 
                 <h4 className="center">Login</h4>
-                <form onSubmit={this.handleSubmit} className="center" >     
+                <form onSubmit={handleLogin} className="center" >     
                     <label className="left" >Email</label>
-                    <input onChange={this.handleChange}
-                        name='email'
-                        type='email'
-                        value={this.state.email}
-                        placeholder="Enter your user email"
-                        required />
+                    <input name='email' type='email' placeholder="Enter your user email" required />
                     <label className="left" >Password</label>
-                    <input onChange={this.handleChange}
-                         name='password'
-                         type='password'
-                         value={this.state.password}
-                        placeholder="Enter password"
-                        required />
+                    <input name='password' type='password' placeholder="Enter password" required />
                     <div className="container">
                         <h6 className="center red-text">error message</h6>
                     </div>
                     <div className="Buttons">
                         <button type="submit" className="btn ">login</button>
-                        <button onClick={signInWithGoogle}  className="btn green">Login by Google</button>
                     </div>                   
                 </form>
             </div>
           );
     }
-}
+
  
-export default Login;
+export default withRouter(Login);

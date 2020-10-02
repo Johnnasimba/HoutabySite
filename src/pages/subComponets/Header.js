@@ -51,7 +51,7 @@ const Header =({handleChange}) => {
                             </li>
                         </ul>
                     <div id="Admn">         
-                        <a href="login" className="white-text right">Admn</a>
+                        <a href="/admin" className="white-text right">Admn</a>
                     </div>               
                     </div>
                 </nav>

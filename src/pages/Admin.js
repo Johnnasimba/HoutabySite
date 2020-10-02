@@ -1,22 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { MdClose } from "react-icons/md";
+import { useHistory } from "react-router-dom";
+
 import '../css/index.css'
-import {auth} from '../firebase/firebase.utils'
-class Admin extends Component {
-    render() {
-       
+import app from "../componets/auth/base"
+const Admin = ({employerRequest, deleteemployerRequest}) => { 
+    const history = useHistory();
+    const handleLogout = () =>{ 
+        let path = "/login"; 
+        history.push(path);
+        app.auth().signOut();
+      }
+    
         return (
             <div id="Admn-section">
                 <div className="center " id="addBtn">
                     <a href="/addApplicant"><h5 className="btn center addApplicant">ADD NEW APPLICANT</h5></a>
                     <a href="/singup-new-admin"><h5 className="btn center addApplicant">SIGN UP NEW  USER ADMIN</h5></a>
-                    <button onClick={() => auth.signOut()} className="btn left longout">Logout</button>
+                    <button onClick={handleLogout} className="btn left longout">Logout</button>
                     <h4 className="mssg center">session mesage</h4>
                 </div>       
                 <div className="left employerRequest">
                     <h5 className="center"> employer request will be displayed here</h5>                
                     <ul className="collection ">
-                        {this.props.employerRequest.map(item => (
+                        {employerRequest.map(item => (
                                 <li className="collection-item avatar" key={item.employerId}>
                                     <span className="title"><strong>employer name</strong>  : {item.employerName}</span>
                                     <p><strong>Phone</strong> : {item.phone}</p>
@@ -25,7 +32,7 @@ class Admin extends Component {
                                     <p><strong>Applicant selected</strong> : {item.ApplicantSelected}</p>
                                         <p><strong> Applicant id</strong> : {item.ApplicantId} </p>
                                 <button  className="secondary-content red"
-                                onClick={()=> this.props.deleteemployerRequest(item)}
+                                onClick={()=> deleteemployerRequest(item)}
                                 ><MdClose className="white-text red"/></button>
                                 </li>
                             ))
@@ -36,6 +43,6 @@ class Admin extends Component {
             </div>
         )
     }
-}
+
 
 export default Admin;
