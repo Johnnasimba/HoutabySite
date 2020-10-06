@@ -16,6 +16,7 @@ import GroupSearch from './pages/groupSearch';
 import { without } from 'lodash';
 import { AuthProvider } from "./componets/auth/Auth";
 import PrivateRoute from "./componets/auth/PrivateRoute";
+import Loading from './componets/loading/loading.component';
 
 
 class App extends Component {
@@ -53,18 +54,27 @@ class App extends Component {
     this.setState({ queryText: e.target.value })
   }
   
-  componentDidMount() {    
-   fetch('/Applicant.json')
+  componentDidMount() {  
+    const applicantsData = '/api/applicants';
+    const employerRequestData = '/api/employer-request';
+   fetch(applicantsData)
      .then(Response => Response.json())
      .then(result => {
        const tempApplicants = result.map(item => {
          return item;
        })
-       this.setState({
-         Applicants: tempApplicants
-       })
+       if (tempApplicants) {
+        this.setState({
+          Applicants: tempApplicants
+        })
+       } else {
+         return (
+           <Loading />
+         )
+       }
+       
      });  
-   fetch('/employerRequest.json')
+   fetch(employerRequestData)
      .then(Response => Response.json())
      .then(result => {
        const tempemployerRequest = result.map(item => {
