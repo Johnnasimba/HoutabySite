@@ -14,7 +14,7 @@ const RecommendationForm = ({id, recommendation, setRecommendationInfo}) => {
         setRecommendationInfo(body);
         setUsername('');
         setRecommendationText('');
-}
+       }
     return ( 
         <div className="container" id="recommendation">
                  <h6 className="center">RECOMMENDATIONS</h6>

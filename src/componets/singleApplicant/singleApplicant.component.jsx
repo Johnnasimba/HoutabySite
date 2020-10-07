@@ -1,10 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import EmployerRequestForm from './addEmployerRequest.component';
 import RecommendationForm from './addRecommendationForm.component';
 import './singleApplicant.styles.scss';
 const SingleApplicant = ({ Applicant, relatedApplicants, id }) => {
-    const [ setRecommendationInfo] = useState({recommendationInfo: []});
+    const [setRecommendationInfo] = useState({ recommendationInfo: [] });
+    const [setEmployerRequestInfo] = useState({ employerRequestInfo: [] });
+    
     return ( 
         <div className="row" >
            
@@ -42,23 +45,13 @@ const SingleApplicant = ({ Applicant, relatedApplicants, id }) => {
             <h6 className="light-blue-text">Submit the form below to receive contact information for JOHN. <br /> It will be sent to you within 24hrs</h6>
           </div><br /><br /><br />
           
-          <div className="container" id="login">
-            <form className="right" >
-             
-              <label className="left" >Your Name</label>
-              <input type="text" name="name" placeholder="Enter your Name" required />
-
-              <label className="left" >Email</label>
-              <input type="text" name="email" placeholder="Enter your user email" required />
-
-              <label className="left" >Your Mobile Number</label>
-              <input type="number" name="number" placeholder="Enter mobile number" required />
-              <label htmlFor="message">Message</label>
-              <textarea name="message" cols="30" rows="10" className="grey-text" defaultValue={"Please send me contact information of " + Applicant.firstName} /> <br />
-              <button type="submit" className="btn right">Send Message</button><br /><br />
-              <h4 className="blue-text">session message</h4>
-            </form>
-          </div> 
+                <EmployerRequestForm
+                    id={id}
+                    setEmployerRequestInfo={setEmployerRequestInfo}
+                    firstName={Applicant.firstName}
+                    selectedApplicant={Applicant.firstName + ' ' + Applicant.lastName}
+                    applicant_id={Applicant.id}
+                />
 
         </div>
  
