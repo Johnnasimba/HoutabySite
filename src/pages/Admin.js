@@ -29,8 +29,8 @@ const Admin = ({employerRequest, deleteemployerRequest}) => {
                                     <p><strong>Phone</strong> : {item.phone}</p>
                                     <p><strong>Email</strong> : {item.email}</p>
                                     <p><strong> employer message </strong> :{item.employerMessage} </p>
-                                    <p><strong>Applicant selected</strong> : {item.ApplicantSelected}</p>
-                                        <p><strong> Applicant id</strong> : {item.ApplicantId} </p>
+                                    <p><strong>Applicant selected</strong> : {item.applicantSelected}</p>
+                                        <p><strong> Applicant id</strong> : {item.applicantId} </p>
                                 <button  className="secondary-content red"
                                 onClick={()=> deleteemployerRequest(item)}
                                 ><MdClose className="white-text red"/></button>
