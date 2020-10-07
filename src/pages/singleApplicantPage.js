@@ -19,7 +19,8 @@ class SingleApplicantPage extends Component {
       id: id
     }) : id = '';
 
-    fetch('./Applicant.json')
+    const applicantsData = '/api/applicants';
+    fetch(applicantsData)
      .then(Response => Response.json())
      .then(result => {
        const tempApplicants = result.map(item => {
