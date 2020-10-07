@@ -40,7 +40,7 @@ const Header =({handleChange}) => {
                                 </li>
                             </div>
                             <li className="search">
-                                <form action="search" method="get" >                 
+                                <form  >                 
                                     <input
                                         className="white"
                                         type='search'
@@ -51,7 +51,7 @@ const Header =({handleChange}) => {
                             </li>
                         </ul>
                     <div id="Admn">         
-                        <a href="/admin" className="white-text right">Admn</a>
+                        <a href="/admin" className="white-text right" id="Admin">Admn</a>
                     </div>               
                     </div>
                 </nav>

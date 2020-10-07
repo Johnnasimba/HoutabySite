@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = ({Applicants}) => {
     
@@ -24,7 +25,7 @@ const Home = ({Applicants}) => {
                             <p> 0 recomendations</p>
                         </div>
                         <div>
-                                <a href={"/" + item.id} className="card__link btn white-text">MORE INFO</a>
+                                <Link to={"/" + item.id} className="card__link btn white-text">MORE INFO</Link>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import '../componets/singleApplicant/singleApplicant.styles.scss'
-import Loading from '../componets/loading/loading.component'
+import { Link } from 'react-router-dom';
+import '../componets/singleApplicant/singleApplicant.styles.scss';
+import Loading from '../componets/loading/loading.component';
 
 
 class SingleApplicantPage extends Component {
@@ -151,7 +152,7 @@ class SingleApplicantPage extends Component {
                         <p> 0 recomendations</p>
                       </div>
                       <div>
-                        <a href={"/" + item.id} className="card__link btn white-text">MORE INFO</a>
+                        <Link to={"/" + item.id} className="card__link btn white-text">MORE INFO</Link>
                       </div>
                     </div>
                   </div>

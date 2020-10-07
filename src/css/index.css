@@ -310,8 +310,8 @@ transition: all 0.8s ease !important;
 nav .btn:hover {
 background: #0277bd !important;
 }
-#Admn {
-margin-left: 90%;
+#Admin {
+margin-left: 90% !important;
 }  
 nav #arrow-down {
   margin-bottom: -10px;
