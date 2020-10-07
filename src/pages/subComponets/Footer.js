@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom'
 
 
 
 
-class Footer extends Component {
-    render() {
+const Footer = ()=> {
+    
         return (
             <div>
                 <nav className="nav-wrapper" id="footer">
                     <div className="left">
                         <ul>
-                            <li > <a href="/">HOME</a>  </li>
-                            <li> <a href="about">ABOUT</a>  </li>  
+                            <li > <Link to="/">HOME</Link>  </li>
+                            <li> <Link to="about">ABOUT</Link>  </li>  
                             <li> @2020</li>                
                         </ul>
                     </div>      
@@ -28,6 +29,6 @@ class Footer extends Component {
             </div>
         )
     }
-}
+
 
 export default Footer;

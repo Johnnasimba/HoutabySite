@@ -97,12 +97,13 @@ class App extends Component {
     )
     
     return (
-      <>
+      <AuthProvider>     
+        <Router>
+      
       <Header handleChange={ this.handleChange}  />
       <div id="bodyPlusPagination">
           <div id="content">
-      <AuthProvider>     
-        <Router>
+      
           <div>
             <Switch>
               <Route path="/"
@@ -162,13 +163,13 @@ class App extends Component {
               />
             </Switch>
             </div>
-          </Router>
-      </AuthProvider>      
+          
       </div>
     </div>
     
         <Footer />
-        </>
+        </Router>
+      </AuthProvider> 
     );
   }
   
