@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 
-const Header =({handleChange}) => {
+const Header = ({ handleChange }) => {
+
+    
         return (
             <div id="header">
                 <nav className="nav-wapper">
@@ -16,22 +17,22 @@ const Header =({handleChange}) => {
                             <div className="hide-on-med-and-down"> 
                                 <li>
                                     <div id="home">
-                                        <Link to="/">
+                                        <a href="/">
                                             <i className="material-icons">home</i>
-                                        </Link>
+                                        </a>
                                     </div>
                                 </li>  
                                 <li >
-                                    <Link to="/search/General">General Workers</Link>
+                                    <a href="/search/General">General Workers</a>
                                 </li>
                                 <li>
-                                    <Link to="/search/Gardener">Gardeners</Link>
+                                    <a href="/search/Gardener">Gardeners</a>
                                 </li>
                                 <li>
-                                    <Link to="/search/Driver">Drivers</Link>
+                                    <a href="/search/Driver">Drivers</a>
                                 </li>
                                 <li>
-                                    <Link to="/search/Housekeeper">House Keepers</Link>
+                                    <a href="/search/Housekeeper">House Keepers</a>
                                 </li>
                                 <li>
                                     <a href="/" className="dropdown-trigger" data-target="dropdown" id="arrow-down">
@@ -58,23 +59,23 @@ const Header =({handleChange}) => {
 
 
                 <ul className="sidenav" id="mobile-links">
-                    <li > <Link to="/search/General">General Workers</Link>  </li>
-                    <li> <Link to="/search/Gardener">Gardeners</Link>  </li>
-                    <li> <Link to="/search/Driver">Drivers</Link>  </li>
-                    <li> <Link to="/search/House">House Keepers</Link> </li>
-                    <li> <Link to="/search/Painter">Painter</Link> </li>
-                    <li > <Link to="/search/Brick">Brick Layers</Link>  </li>
-                    <li> <Link to="/search/Plumber">Plumber</Link>  </li>
-                    <li> <Link to="/search/Shop">Shop assistance</Link>  </li>
-                    <li> <Link to="/search/Baby">Baby sitter</Link> </li>
+                    <li > <a href="/search/General">General Workers</a>  </li>
+                    <li> <a href="/search/Gardener">Gardeners</a>  </li>
+                    <li> <a href="/search/Driver">Drivers</a>  </li>
+                    <li> <a href="/search/House">House Keepers</a> </li>
+                    <li> <a href="/search/Painter">Painter</a> </li>
+                    <li > <a href="/search/Brick">Brick Layers</a>  </li>
+                    <li> <a href="/search/Plumber">Plumber</a>  </li>
+                    <li> <a href="/search/Shop">Shop assistance</a>  </li>
+                    <li> <a href="/search/Baby">Baby sitter</a> </li>
                 </ul>
 
                 <ul id="dropdown" className="dropdown-content ">
-                    <li className="dropdown-list"> <Link to="/search/Painter">Painter</Link> </li>
-                    <li className="dropdown-list"> <Link to="/search/Brick">Brick Layers</Link>  </li>
-                    <li className="dropdown-list"> <Link to="/search/Plumber">Plumber</Link>  </li>
-                    <li className="dropdown-list"> <Link to="/search/Shop">Shop assistance</Link>  </li>
-                    <li className="dropdown-list"> <Link to="/search/Baby">Baby sitter</Link> </li>
+                    <li className="dropdown-list"> <a href="/search/Painter">Painter</a> </li>
+                    <li className="dropdown-list"> <a href="/search/Brick">Brick Layers</a>  </li>
+                    <li className="dropdown-list"> <a href="/search/Plumber">Plumber</a>  </li>
+                    <li className="dropdown-list"> <a href="/search/Shop">Shop assistance</a>  </li>
+                    <li className="dropdown-list"> <a href="/search/Baby">Baby sitter</a> </li>
                 </ul>
             </div>
         )

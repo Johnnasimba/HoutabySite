@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import swal from 'sweetalert';
+
 
 const EmployerRequestForm = ({id, selectedApplicant, setEmployerRequestInfo  }) => {
     const [employerName, setEmployerName] = useState('');
@@ -22,7 +24,14 @@ const EmployerRequestForm = ({id, selectedApplicant, setEmployerRequestInfo  }) 
         setEmployerName('');
         setEmail('');
         setPhone('');
-        setEmployerMessage('');
+    setEmployerMessage('');
+    
+    await swal({
+      title: "Request sent successfully!",
+      text: "We will keep in touch as soon as possible",
+      icon: "success",
+      button: "Close!",
+    });
 }
     return (
         <div className="container" id="login">
@@ -62,7 +71,7 @@ const EmployerRequestForm = ({id, selectedApplicant, setEmployerRequestInfo  }) 
                     onChange={(e => setEmployerMessage(e.target.value))}
                     cols="30" rows="10" className="grey-text"
                  /> <br/>
-              <button onClick={(e)=> addRequest(e)} className="btn right">Send Message</button><br /><br />
+              <button onClick={(e)=> addRequest(e)} id="submit" className="btn right">Send Message</button><br /><br />
             </form>
           </div> 
       );

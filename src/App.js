@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.min.css';
+
 
 import Header from './pages/subComponets/Header';
 import Footer from './pages/subComponets/Footer'

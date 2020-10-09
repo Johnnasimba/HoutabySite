@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import EmployerRequestForm from './addEmployerRequest.component';
 import RecommendationForm from './addRecommendationForm.component';
 import './singleApplicant.styles.scss';
@@ -75,7 +74,7 @@ const SingleApplicant = ({ Applicant, relatedApplicants, id }) => {
                     <p> 0 recomendations</p>
                   </div>
                   <div>
-                    <Link to={"/" + item.id} className="card__link btn white-text">MORE INFO</Link>
+                    <a href={"/" + item.id} className="card__link btn white-text">MORE INFO</a>
                   </div>
                 </div>
               </div>
