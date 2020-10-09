@@ -1,8 +1,10 @@
-import React from 'react';
-
+import React, {useEffect} from 'react';
+import M from 'materialize-css'; 
 
 const Header = ({ handleChange }) => {
-
+    useEffect(() => {
+        M.AutoInit();
+      }, []);
     
         return (
             <div id="header">
