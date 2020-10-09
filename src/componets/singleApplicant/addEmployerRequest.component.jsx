@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
 
-const EmployerRequestForm = ({id, selectedApplicant, applicant_id, setEmployerRequestInfo  }) => {
+const EmployerRequestForm = ({id, selectedApplicant, setEmployerRequestInfo  }) => {
     const [employerName, setEmployerName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [employerMessage, setEmployerMessage] = useState('');
-    const [applicantSelected, setApplicantSelected] = useState('');
-    const [applicantId, setApplicantId] = useState('');
+    const applicantSelected = selectedApplicant;
+    const applicantId = id;
 
-    const addRequest = async () => {
+  const addRequest = async (e) => {
+      e.preventDefault()
         const result = await fetch(`api/employerRequest/${id}`, {
             method: 'post',
             body: JSON.stringify({ employerName, phone, email, employerMessage, applicantSelected, applicantId }),
@@ -17,12 +18,11 @@ const EmployerRequestForm = ({id, selectedApplicant, applicant_id, setEmployerRe
             }
         });
         const body = await result.json();
-        setEmployerRequestInfo(body);
+        setEmployerRequestInfo = body;
         setEmployerName('');
         setEmail('');
+        setPhone('');
         setEmployerMessage('');
-        setApplicantSelected('');
-        setApplicantId('');
 }
     return (
         <div className="container" id="login">
@@ -54,22 +54,7 @@ const EmployerRequestForm = ({id, selectedApplicant, applicant_id, setEmployerRe
                     placeholder="Enter mobile number"
                     required
                 />
-                <input
-                   style={{display: "none"}}
-                   type="text"
-                   value={applicantSelected}
-                   onChange={(e => setApplicantSelected(selectedApplicant))}
-                    placeholder="Enter mobile number"
-                    required
-                />
-                <input
-                   style={{display: "none"}}
-                   type="number"
-                   value={applicantId}
-                   onChange={(e => setApplicantId(applicant_id))}
-                    placeholder="Enter mobile number"
-                    required
-                />
+                
               <label htmlFor="message">Message</label>
                 <textarea
                     type="text"
@@ -77,7 +62,7 @@ const EmployerRequestForm = ({id, selectedApplicant, applicant_id, setEmployerRe
                     onChange={(e => setEmployerMessage(e.target.value))}
                     cols="30" rows="10" className="grey-text"
                  /> <br/>
-              <button onClick={()=> addRequest()} className="btn right">Send Message</button><br /><br />
+              <button onClick={(e)=> addRequest(e)} className="btn right">Send Message</button><br /><br />
             </form>
           </div> 
       );

@@ -11,7 +11,7 @@ const RecommendationForm = ({id, recommendation, setRecommendationInfo}) => {
             }
         });
         const body = await result.json();
-        setRecommendationInfo(body);
+        setRecommendationInfo = body;
         setUsername('');
         setRecommendationText('');
        }
