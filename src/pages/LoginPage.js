@@ -14,7 +14,7 @@ const LoginPage =({history}) => {
             await app
               .auth()
               .signInWithEmailAndPassword(email.value, password.value);
-            history.push("/");
+            history.push("/admin");
           } catch (error) {
             alert(error);
           }
@@ -35,9 +35,6 @@ const LoginPage =({history}) => {
                     <input name='email' type='email' placeholder="Enter your user email" required />
                     <label className="left" >Password</label>
                     <input name='password' type='password' placeholder="Enter password" required />
-                    <div className="container">
-                        <h6 className="center red-text">error message</h6>
-                    </div>
                     <div className="Buttons">
                         <button type="submit" className="btn ">login</button>
                     </div>                   
