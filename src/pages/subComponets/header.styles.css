@@ -1,0 +1,10 @@
+#Admin {
+    margin-right: 50px !important;
+}
+@media only screen and (mix-width: 800px) {
+    
+ 
+    #Admin {
+        margin-right: 10% !important;
+    }
+  }

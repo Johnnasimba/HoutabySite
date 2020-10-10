@@ -21,7 +21,8 @@ const SingleApplicant = ({ Applicant, relatedApplicants, id }) => {
             <p><strong>AGE:  </strong><span className="right"> {Applicant.age} </span> </p>
             <p><strong>GENDER:</strong> <span className="right">{Applicant.gander} </span> </p>
             <p><strong>NATIONALITY:</strong><span className="right"> {Applicant.nationality} </span> </p>
-            <p><strong>Available days:</strong> <span className="right">all working days </span> </p>                    
+            <p><strong>Available days:</strong> <span className="right">all working days </span> </p> 
+            
             <RecommendationForm id={id} setRecommendationInfo={setRecommendationInfo} recommendation={Applicant.recommendations}/>
              
         </div>
@@ -41,7 +42,7 @@ const SingleApplicant = ({ Applicant, relatedApplicants, id }) => {
           <p>David Scott</p>
           <p>contact information reserved. </p>
           <div className="left">
-            <h6 className="light-blue-text">Submit the form below to receive contact information for JOHN. <br /> It will be sent to you within 24hrs</h6>
+            <h6 className="light-blue-text">Submit the form below to receive contact information for {Applicant.firstName.toUpperCase() }. <br /> It will be sent to you within 24hrs</h6>
           </div><br /><br /><br />
           
                 <EmployerRequestForm

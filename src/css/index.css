@@ -240,8 +240,11 @@ margin-left: 50px;
         margin-left: 10px;              
         margin-top: 5px;          
     }
-    #Admn {
-        margin-right: 10px;
+    #Admin {
+        margin-right: 0px;
+    }
+    #login {
+      margin-left: 20px !important;
     }
 }
 

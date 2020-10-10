@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import M from 'materialize-css'; 
+import './header.styles.css';
 
 const Header = ({ handleChange }) => {
     useEffect(() => {
@@ -54,7 +55,7 @@ const Header = ({ handleChange }) => {
                             </li>
                         </ul>
                     <div id="Admn">         
-                        <a href="/admin" className="white-text right" id="Admin">Admn</a>
+                        <a href="/admin" className="white-text right" id="Admin" >Admn</a>
                     </div>               
                     </div>
                 </nav>

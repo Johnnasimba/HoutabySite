@@ -25,7 +25,9 @@ const RecommendationForm = ({id, recommendation, setRecommendationInfo}) => {
             </div>
             )): <div>submit the form below to recommend</div>
             }
-              <form >
+            <div>
+                <h5>Add a recommendation</h5>
+             <form >
                 <label htmlFor="username">Your Name</label><br />
                 <input
                     type="text"
@@ -35,11 +37,13 @@ const RecommendationForm = ({id, recommendation, setRecommendationInfo}) => {
                  
                 <textarea value={recommendationText}
                     id="recommed" cols="30" rows="10"
-                    placeholder="Recommend JOHN"
+                    placeholder="Recommend "
                     onChange={(e => setRecommendationText(e.target.value))}     
                 />
                 <button onClick={()=> addRecommendation()} className="center btn">Post</button>
-              </form>              
+              </form>  
+            </div>
+                          
              </div>
      );
 }

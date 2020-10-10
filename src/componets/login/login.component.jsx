@@ -28,16 +28,13 @@ const Login =({history}) => {
         return <Redirect to="/" />;
       }
         return (
-            <div className="container" id="login"> 
+            <div className="container center green-text" id="login"> 
                 <h4 className="center">Login</h4>
-                <form onSubmit={handleLogin} className="center" >     
+                <form onSubmit={handleLogin} className="center green"  >     
                     <label className="left" >Email</label>
                     <input name='email' type='email' placeholder="Enter your user email" required />
                     <label className="left" >Password</label>
                     <input name='password' type='password' placeholder="Enter password" required />
-                    <div className="container">
-                        <h6 className="center red-text">error message</h6>
-                    </div>
                     <div className="Buttons">
                         <button type="submit" className="btn ">login</button>
                     </div>                   
