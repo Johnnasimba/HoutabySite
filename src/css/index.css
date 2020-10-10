@@ -398,9 +398,9 @@ background-color: #00aced;
 box-shadow: 0 0 16px #00aced;
 }
 
-.socialIcons .instagram {
-background-color: #cd486b;
-box-shadow: 0 0 16px #cd486b;
+.socialIcons .linkedin {
+background-color: rgb(0,119,181);
+box-shadow: 0 0 16px rgb(0,119,181);
 }
 
 .socialIcons .whatsapp {

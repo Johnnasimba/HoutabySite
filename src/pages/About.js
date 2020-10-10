@@ -12,7 +12,7 @@ class About extends Component {
                 <br /><br />
                 <h6 className="container center">
                     For more information contact John Nasimba using the contact information
-                    provided down below
+                    provided below
                 </h6>
             </div>
         )
