@@ -17,8 +17,7 @@ const Admin = ({employerRequest, deleteemployerRequest}) => {
                 <div className="center " id="addBtn">
                     <a href="/addApplicant"><h5 className="btn center addApplicant">ADD NEW APPLICANT</h5></a>
                     <a href="/singup-new-admin"><h5 className="btn center addApplicant">SIGN UP NEW  USER ADMIN</h5></a>
-                    <button onClick={handleLogout} className="btn left longout">Logout</button>
-                    <h4 className="mssg center">session mesage</h4>
+                    <button onClick={handleLogout} className="btn left longout red">Logout</button>
                 </div>       
                 <div className="left employerRequest">
                     <h5 className="center"> employer request will be displayed here</h5>                

@@ -174,12 +174,6 @@ ul.socialIcons {
 }
 
 
-
-
-
-
-
-
 #content {
   margin-bottom: 100px;
 }
@@ -240,9 +234,7 @@ margin-left: 50px;
         margin-left: 10px;              
         margin-top: 5px;          
     }
-    #Admin {
-        margin-right: 0px;
-    }
+   
     #login {
       margin-left: 20px !important;
     }
@@ -313,9 +305,7 @@ transition: all 0.8s ease !important;
 nav .btn:hover {
 background: #0277bd !important;
 }
-#Admin {
-margin-left: 90% !important;
-}  
+
 nav #arrow-down {
   margin-bottom: -10px;
 margin-top: 15px;
@@ -427,14 +417,11 @@ margin-top: 10px;
 #Admn-section .employerRequest {
   margin: 5%;
 }
-#addBtn {
-  display: inline;
-}
+
 #addBtn .logout{
   padding: 0px;
 }
 #addBtn .addApplicant{
   padding: 0px;
-  
-  margin: 0px 0px 0px 40%;
+  margin: 10px;
 }
