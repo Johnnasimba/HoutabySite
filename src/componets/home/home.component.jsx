@@ -22,7 +22,7 @@ const Home = ({Applicants}) => {
                     </div>
                     <div className="card__info">
                         <div>
-                            <p> 0 recomendations</p>
+                            <p> {item.recommendations.length} recomendations</p>
                         </div>
                         <div>
                                 <Link to={"/" + item.id} className="card__link btn white-text">MORE INFO</Link>
