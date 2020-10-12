@@ -1,38 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import $ from 'jquery'; 
 
-const Home = ({Applicants}) => {
+const Home = ({ Applicants }) => {
     
+    $(".row").hover(function(){
+        $(this).css("transform", "scale(1.1)");
+        }, function(){
+        $(this).css("transform", "scale(1)");
+      });
     return ( 
         <div className="cards">
             {Applicants.map(item => (
-                <div className="card" key={item.id}>
-                    <img className="card__image" src={require(`../../images/${item.image}`)} alt="John Nasimba " />
-                    <div className="card__content">
-                        <p className="card-title " >
-                            {item.firstJob}, {item.secondJob}, {item.thirdJob},  {item.forthJob}
-                    
-                        </p>
-            
-                        <p className="uppercase bold" id="jobsApplied">
-                            NAME: {item.firstName}
-                        </p>
-                        <p>AVAILABLE DAYS: Monday, Wesday & Friday</p>
-                        <p>LOCATION: Imizamo Yethu, Cape Town</p>
-                    </div>
-                    <div className="card__info">
-                        <div>
-                            <p> {item.recommendations.length} recomendations</p>
+               
+                <div className="row" key={item.id} id="row" >
+                     <Link to={"/" + item.id} className="black-text" >
+                        <div className="col xs12 sm6 md4" >
+                            <div className="card" >
+                                <img className="card__image" src={require(`../../images/${item.image}`)} alt="John Nasimba " />
+                                <div className="card__content">
+                                    <p className="card-title " >
+                                        {item.firstJob}, {item.secondJob}, {item.thirdJob},  {item.forthJob}
+                                
+                                    </p>
+                        
+                                    <p className="uppercase bold" id="jobsApplied">
+                                        NAME: {item.firstName}
+                                    </p>
+                                    <p>AVAILABLE DAYS: Monday, Wesday & Friday</p>
+                                    <p>LOCATION: Imizamo Yethu, Cape Town</p>
+                                </div>
+                                <div className="card__info">
+                                    <div>
+                                        <p> {item.recommendations.length} recomendations</p>
+                                    </div>
+                                    <div>
+                                            <p className="card__link btn white-text">MORE INFO</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                                <Link to={"/" + item.id} className="card__link btn white-text">MORE INFO</Link>
-                        </div>
+                        </Link>
                     </div>
-                </div>
-                ))
-            }
-
-        </div>
+                
+                    ))
+                 }
+              
+    </div>
      );
 }
  
